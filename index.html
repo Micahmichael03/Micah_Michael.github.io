@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Micah - AI Engineer | Computer Vision Specialist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --primary: #00D4FF;
+            --secondary: #B537F2;
+            --accent: #FF2E97;
+            --text: #E0E0E0;
+            --text-dim: #A0A0A0;
+            --dark-bg: #0A0E27;
+            --darker-bg: #050816;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--darker-bg);
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(181, 55, 242, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(255, 46, 151, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: backgroundShift 20s ease infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        /* Glass Morphism Effect */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(181, 55, 242, 0.1) 100%);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInDown 0.8s ease;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        header .tagline {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            color: var(--text);
+            animation: fadeInUp 0.8s ease;
+            font-weight: 300;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            animation: fadeIn 1s ease;
+        }
+
+        .contact-links a {
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .contact-links a:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Section */
+        section {
+            margin: 4rem 0;
+            animation: fadeIn 1s ease;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), transparent);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-top: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-content p {
+            font-size: 1.15rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+
+        .about-content strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .availability {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(181, 55, 242, 0.2));
+            border: 1px solid var(--primary);
+            padding: 1.2rem;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 2rem;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 2rem;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .skill-card:hover::before {
+            left: 100%;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .skill-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .skill-card p {
+            color: var(--text-dim);
+            line-height: 1.8;
+        }
+
+        /* Experience */
+        .experience-item {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2.5rem;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            border-left-width: 8px;
+            transform: translateX(5px);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.15);
+        }
+
+        .experience-item h3 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .experience-item .company {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .experience-item .date {
+            color: var(--text-dim);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-item ul {
+            margin-left: 1.5rem;
+        }
+
+        .experience-item li {
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        .experience-item strong {
+            color: var(--accent);
+        }
+
+        /* Projects */
+        .project-category {
+            margin-top: 3rem;
+        }
+
+        .project-category h3 {
+            color: var(--secondary);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+            border-left: 4px solid var(--secondary);
+            font-weight: 600;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(181, 55, 242, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .project-card:hover::after {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.2);
+        }
+
+        .project-card .project-header {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(181, 55, 242, 0.15));
+            padding: 2rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .project-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .project-card .tech-stack {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        .project-card .project-body {
+            padding: 2rem;
+        }
+
+        .project-card ul {
+            margin-left: 1.2rem;
+        }
+
+        .project-card li {
+            margin-bottom: 0.8rem;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .project-card strong {
+            color: var(--accent);
+        }
+
+        .project-card .project-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.7rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker-bg);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .project-card .project-link:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Education & Certifications */
+        .education-box, .cert-box {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-top: 2rem;
+        }
+
+        .education-box h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .education-box p {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-box strong {
+            color: var(--secondary);
+        }
+
+        .cert-list {
+            list-style: none;
+        }
+
+        .cert-list li {
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 12px;
+            border-left: 3px solid var(--secondary);
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .cert-list li:hover {
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateX(10px);
+            border-left-width: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(181, 55, 242, 0.05));
+            backdrop-filter: blur(20px);
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 5rem;
+        }
+
+        footer h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+        }
+
+        footer h2::after {
+            display: none;
+        }
+
+        footer p {
+            margin-bottom: 2rem;
+            font-size: 1.15rem;
+            color: var(--text);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--darker-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            header .tagline {
+                font-size: 1.1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Michael Chukwuemeka Micah</h1>
+        <p class="tagline">AI Engineer | Computer Vision Specialist | Machine Learning Engineer | Data Engineer</p>
+        <div class="contact-links">
+            <a href="https://github.com/Micahmichael03" target="_blank">🔗 GitHub</a>
+            <a href="https://linkedin.com/in/michael-micah" target="_blank">🔗 LinkedIn</a>
+            <a href="mailto:makoflash05@gmail.com">✉️ makoflash05@gmail.com</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2>👋 About Me</h2>
+            <div class="about-content">
+                <p>Computer Vision and Machine Learning Engineer with <strong>2+ years of experience</strong> building production-ready AI solutions. Specialized in real-time object detection, semantic segmentation, video analytics, and autonomous systems using <strong>YOLO (v8/v11/v12), TensorFlow, and OpenCV</strong>.</p>
+                
+                <p>Expert in <strong>end-to-end ML pipelines</strong> and <strong>data engineering workflows</strong>—from dataset curation, annotation, and model training to ETL pipeline development, dashboard creation, and real-time deployment. Proven track record deploying models achieving <strong>90%+ accuracy</strong> in production environments processing <strong>1M+ images daily</strong>.</p>
+                
+                <p>Combining Computer Vision expertise with Data Engineering skills to build intelligent systems that not only see and understand, but also process, analyze, and deliver actionable insights at scale. From autonomous vehicle detection systems to global food supply analytics dashboards—I deliver end-to-end AI and data solutions.</p>
+                
+                <div class="availability">
+                    ✅ Currently Available for Full-Time, Contract, or Freelance Opportunities | Remote Worldwide
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Stack -->
+        <section id="skills">
+            <h2>🛠️ Technical Stack</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Computer Vision & AI</h3>
+                    <p>YOLOv8/v11/v12/v5, CNNs, Semantic Segmentation, Object Detection, Feature Matching, Depth Estimation, OCR, Image Stitching, TensorFlow, PyTorch, Scikit-learn, OpenCV, Video Analytics</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Data Engineering & ETL</h3>
+                    <p>ETL/ELT Pipelines, Apache Airflow, Real-Time Data Streaming, Microsoft Fabric, Lakehouse Architecture, Data Warehousing, API Integration, Data Cleaning & Transformation</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Data Analytics & BI</h3>
+                    <p>Power BI, SQL (MySQL, PostgreSQL), Python (Pandas, NumPy, Matplotlib), DAX, Excel VBA, Interactive Dashboards, Semantic Modeling, Business Intelligence, Statistical Analysis</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Programming & Development</h3>
+                    <p>Python, SQL, JavaScript, TypeScript, Node.js, Git, Docker, Jenkins, Jupyter, Streamlit, FastAPI, Flask, REST APIs</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Simulation & Robotics</h3>
+                    <p>CARLA Simulator, ROS, Multi-Camera Fusion, ADAS Testing, Digital Twin Development, Autonomous Navigation Systems</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Data Labeling & Quality</h3>
+                    <p>Dataset Annotation, CVAT, Labelbox, Quality Control Protocols, Data Validation, Annotation Team Leadership, Complex Evaluation Frameworks</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience">
+            <h2>💼 Professional Experience</h2>
+            
+            <div class="experience-item">
+                <h3>Freelance AI & Computer Vision Engineer</h3>
+                <p class="company">Remote</p>
+                <p class="date">May 2024 – Present</p>
+                <ul>
+                    <li>Delivered <strong>12+ production-grade</strong> computer vision and data engineering solutions for clients across traffic management, retail, security, and analytics domains</li>
+                    <li>Achieved <strong>90%+ accuracy</strong> in real-time object detection systems processing <strong>30+ FPS</strong> on edge devices</li>
+                    <li>Built digital twin simulations using <strong>CARLA + YOLO</strong> for ADAS validation, reducing physical testing costs by <strong>60%</strong></li>
+                    <li>Developed multi-camera fusion pipeline for autonomous navigation with monocular depth estimation</li>
+                    <li>Integrated YOLOv8 with live video streams for warehouse inventory tracking, reducing manual audits by <strong>75%</strong></li>
+                    <li>Created ETL pipelines processing <strong>500K+ records</strong> from multiple APIs with real-time dashboards</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>AI & Computer Vision Engineer</h3>
+                <p class="company">Rakechat, Lagos, Nigeria (Remote)</p>
+                <p class="date">October 2023 – May 2024</p>
+                <ul>
+                    <li>Deployed real-time NSFW content detection system using YOLOv8, achieving <strong>90% accuracy</strong> across <strong>1M+ daily images</strong></li>
+                    <li>Engineered automated video moderation pipeline processing <strong>10K+ hours</strong> of content monthly</li>
+                    <li>Integrated speech-to-text and TTS models into chatbot infrastructure, improving user engagement by <strong>40%</strong></li>
+                    <li>Led dataset annotation team of 5, improving model precision by <strong>15%</strong> through quality control protocols</li>
+                    <li>Reduced false positive rate by <strong>22%</strong> through custom data augmentation and transfer learning</li>
+                    <li>Created comprehensive evaluation documentation and quality reports for stakeholder review</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Computer Vision Intern & Backend Developer</h3>
+                <p class="company">Hard Sands Technology, Lagos, Nigeria</p>
+                <p class="date">July 2023 – January 2024</p>
+                <ul>
+                    <li>Automated data processing workflows using Python, reducing manual effort by <strong>30%</strong> and processing time by <strong>45%</strong></li>
+                    <li>Built intelligent backend systems integrating computer vision models with REST APIs</li>
+                    <li>Optimized video/image processing pipelines, achieving <strong>3x throughput</strong> improvement</li>
+                    <li>Implemented CI/CD pipelines using Jenkins and Bitbucket for AI model deployment</li>
+                    <li>Developed AI-based feedback collection tools improving data quality by <strong>20%</strong></li>
+                    <li>Integrated backend data with dashboards, boosting operational efficiency by <strong>85%</strong></li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>AI Data Labeler & Annotator</h3>
+                <p class="company">Remotasks / Scale AI</p>
+                <p class="date">June 2022 – Present</p>
+                <ul>
+                    <li>Annotated and validated computer vision datasets for various AI applications involving <strong>10,000+ images</strong></li>
+                    <li>Conducted quality checks on automated labeling outputs, correcting errors and maintaining annotation standards</li>
+                    <li>Processed and evaluated video and image content against specific project guidelines with <strong>95%+ accuracy</strong></li>
+                    <li>Collaborated with AI engineers to refine annotation schemas and improve data quality</li>
+                    <li>Maintained detailed records of annotation decisions and edge cases for team reference</li>
+                    <li>Performed speech-to-text and text-to-speech evaluation for conversational AI systems</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <h2>🚀 Featured Projects</h2>
+            
+            <!-- Computer Vision Projects -->
+            <div class="project-category">
+                <h3>Computer Vision & AI Engineering</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>360° Autonomous Vehicle Detection System</h4>
+                            <p class="tech-stack">YOLOv8 Nano, CARLA Simulator, Python, OpenCV</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Built 360° object detection system for autonomous vehicles with <strong>85% mAP</strong></li>
+                                <li>Integrated with CARLA simulator for testing in <strong>20+ traffic scenarios</strong></li>
+                                <li>Achieved <strong>35 FPS</strong> real-time performance on edge hardware (Jetson Nano)</li>
+                                <li>Developed comprehensive evaluation framework for diverse traffic conditions</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>License Plate Recognition (Global Multi-Region)</h4>
+                            <p class="tech-stack">YOLOv11, OCR (Tesseract/EasyOCR), TensorFlow, OpenCV</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Multi-country license plate detection system supporting <strong>15+ plate formats</strong> worldwide</li>
+                                <li>Achieved <strong>94% character recognition accuracy</strong> across diverse lighting and angles</li>
+                                <li>Optimized for real-time processing at <strong>25 FPS</strong> on standard GPUs</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Helmet Violation Detection System</h4>
+                            <p class="tech-stack">YOLOv8, OpenCV, Python, Real-Time Alerts</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Safety compliance system detecting helmet violations with <strong>92% accuracy</strong></li>
+                                <li>Integrated automated alert system reducing response time by <strong>80%</strong></li>
+                                <li>Processes live CCTV feeds from multiple camera angles simultaneously</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Shelf Inventory & Restock Monitoring</h4>
+                            <p class="tech-stack">YOLOv8, Computer Vision, Real-Time Analytics</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Automated inventory tracking system for retail environments</li>
+                                <li>Reduced manual stock counting by <strong>85%</strong> with <strong>91% detection accuracy</strong></li>
+                                <li>Real-time alerts for low-stock items and restocking needs</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Face Recognition Attendance System</h4>
+                            <p class="tech-stack">Deep Learning, FaceNet, OpenCV, MySQL, Flask</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Biometric attendance system with <strong>96% face recognition accuracy</strong></li>
+                                <li>Processes attendance for <strong>500+ users</strong> with <strong>&lt;2 second</strong> response time</li>
+                                <li>Built admin dashboard for attendance analytics and reporting</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Monocular Depth Estimation for Navigation</h4>
+                            <p class="tech-stack">Deep Learning, CNNs, MiDaS, OpenCV</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Depth estimation from single camera for obstacle detection</li>
+                                <li>Achieved <strong>&lt;10% error rate</strong> in distance prediction (0-10m range)</li>
+                                <li>Integrated with navigation systems for indoor robotics applications</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Smart Parking Spot Detection</h4>
+                            <p class="tech-stack">YOLOv8, OpenCV, Real-Time Processing</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Automated parking space monitoring with <strong>93% occupancy detection accuracy</strong></li>
+                                <li>Real-time updates reducing parking search time by <strong>60%</strong></li>
+                                <li>Integrated with mobile app for user notifications</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>NSFW Content Detection System</h4>
+                            <p class="tech-stack">YOLOv8, CNN, Transfer Learning, TensorFlow</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Content moderation system with <strong>90% accuracy</strong> on diverse datasets</li>
+                                <li>Processes <strong>100K+ images daily</strong> with &lt;200ms inference time</li>
+                                <li>Deployed using FastAPI with horizontal scaling capabilities</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Image Stitching & Scene Reconstruction</h4>
+                            <p class="tech-stack">OpenCV, Feature Matching (SIFT/ORB), Python</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Panoramic image stitching pipeline for multi-camera arrays</li>
+                                <li>Achieved seamless stitching with <strong>&lt;5% distortion</strong> in output</li>
+                                <li>Used in surveillance and drone mapping applications</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Text Detection for Smart Documents</h4>
+                            <p class="tech-stack">OCR (Tesseract/PaddleOCR), YOLOv8, NLP, Python</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Intelligent document processing system extracting text from images</li>
+                                <li><strong>95% accuracy</strong> on printed text, <strong>87%</strong> on handwritten content</li>
+                                <li>Integrated with document management workflows</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Digital Twin for Traffic Analysis</h4>
+                            <p class="tech-stack">CARLA Simulator, YOLOv8, Python, OpenCV</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Built digital twin simulation for traffic pattern analysis and prediction</li>
+                                <li>Tested autonomous vehicle algorithms in <strong>50+ scenarios</strong></li>
+                                <li>Reduced physical testing requirements by <strong>60%</strong></li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>QR Code Attendance System</h4>
+                            <p class="tech-stack">Computer Vision, QR Detection, Python, MySQL</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Contactless attendance system using QR code detection</li>
+                                <li>Processes <strong>1000+ check-ins daily</strong> with <strong>99% accuracy</strong></li>
+                                <li>Built analytics dashboard tracking attendance patterns</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Engineering Projects -->
+            <div class="project-category">
+                <h3>Data Engineering & Analytics</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Global Food Supply ETL Pipeline & ML Dashboard</h4>
+                            <p class="tech-stack">Python, 6+ APIs (FAO, World Bank, USDA), ETL, Streamlit, Scikit-learn, Power BI</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Built automated ETL pipeline ingesting data from <strong>6+ APIs</strong> (FAO, World Bank, USDA)</li>
+                                <li>Processed <strong>500K+ records</strong> across 200+ countries (2010-2024)</li>
+                                <li>ML models predicting food price trends with <strong>82% accuracy</strong></li>
+                                <li><strong>Pipeline:</strong> API extraction → Pandas transformation → SQL storage → Streamlit visualization</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>AI/ML/Data Science Salary Analysis Dashboard (2020-2025)</h4>
+                            <p class="tech-stack">Power BI, Python (Pandas, NumPy), DAX, SQL</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Analyzed <strong>50K+ salary records</strong> across 15+ countries and 30+ job roles</li>
+                                <li>Built interactive Power BI dashboard with trend analysis and geographic heatmaps</li>
+                                <li>Identified <strong>25% salary growth</strong> in ML roles and top-paying regions</li>
+                                <li><strong>Pipeline:</strong> Python (data cleaning) → SQL (aggregation) → Power BI (visualization with DAX)</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Real-Time Object Detection Analytics Dashboard</h4>
+                            <p class="tech-stack">YOLOv8, Streamlit, Python, OpenCV, Plotly</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Built live object tracking dashboard processing video feeds in real-time</li>
+                                <li>Visualized detection metrics, confidence scores, and class distributions</li>
+                                <li>Integrated with YOLO for traffic, crowd, and inventory monitoring</li>
+                                <li><strong>Pipeline:</strong> OpenCV (video processing) → YOLO (inference) → Streamlit/Plotly (analytics)</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Sales Churn Prediction & Analytics Dashboard</h4>
+                            <p class="tech-stack">Power BI, Python, ML (Random Forest), DAX, SQL</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Predicted customer churn with <strong>88% accuracy</strong> using Random Forest classifier</li>
+                                <li>Built Power BI dashboard with customer segmentation and retention insights</li>
+                                <li>Identified at-risk customers <strong>30 days in advance</strong></li>
+                                <li><strong>Pipeline:</strong> Python/Scikit-learn (ML) → SQL (data prep) → Power BI (BI dashboard with DAX)</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Global Population & Unemployment Trends (1960-2023)</h4>
+                            <p class="tech-stack">Power BI, SQL, Python, World Bank API</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Analyzed <strong>63 years</strong> of demographic data across <strong>195 countries</strong></li>
+                                <li>Built ETL pipeline using Python to extract and transform World Bank datasets</li>
+                                <li>Created geographic visualizations identifying regional unemployment patterns</li>
+                                <li><strong>Pipeline:</strong> World Bank API extraction → Python transformation → SQL warehouse → Power BI</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>YouTube Analytics ETL Pipeline</h4>
+                            <p class="tech-stack">YouTube Data API, Python (Pandas), SQL (MySQL), Apache Airflow</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Automated video performance tracking extracting <strong>50+ metrics daily</strong></li>
+                                <li>Built ETL pipeline with error handling and data validation</li>
+                                <li>Stored processed data in SQL for historical trend analysis</li>
+                                <li><strong>Pipeline:</strong> YouTube API → Pandas processing → MySQL → Airflow scheduling</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Energy Consumption Analysis & Optimization</h4>
+                            <p class="tech-stack">Power BI, Python (Pandas), SQL, Data Cleaning</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Cleaned and analyzed household energy usage data across <strong>10+ regions</strong></li>
+                                <li>Identified <strong>20% potential savings</strong> through consumption pattern analysis</li>
+                                <li>Built Power BI dashboard for monitoring and optimization recommendations</li>
+                                <li><strong>Pipeline:</strong> Python (data cleaning with Pandas) → SQL (aggregation) → Power BI</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>E-commerce Customer Behavior Analysis (GameZone)</h4>
+                            <p class="tech-stack">Python (Pandas, NumPy, Matplotlib), SQL, Jupyter Notebooks</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Cleaned <strong>100K+ transaction records</strong>, handling missing values and outliers</li>
+                                <li>Analyzed customer purchase patterns, identifying top-selling products and peak hours</li>
+                                <li>Built segmentation model grouping customers by behavior (RFM analysis)</li>
+                                <li><strong>Pipeline:</strong> Python (Pandas, NumPy) → SQL querying → Jupyter analysis</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Microsoft Fabric Lakehouse Training & Semantic Modeling</h4>
+                            <p class="tech-stack">Microsoft Fabric, Power BI, Lakehouse, DAX, Data Modeling</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Built Lakehouse data architecture for centralized analytics workspace</li>
+                                <li>Created semantic models with relationships and calculated measures using DAX</li>
+                                <li>Optimized queries reducing dashboard load time by <strong>40%</strong></li>
+                                <li><strong>Tools:</strong> Microsoft Fabric, Power BI Service, OneLake, DAX</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Education Gap Analysis (Global Access Study)</h4>
+                            <p class="tech-stack">Power BI, Python, World Bank API, SQL</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Analyzed education access disparities across <strong>180+ countries</strong></li>
+                                <li>Built ETL pipeline processing UNESCO and World Bank datasets</li>
+                                <li>Visualized gaps by region, gender, and income level</li>
+                                <li><strong>Pipeline:</strong> Python (data extraction) → SQL (transformation) → Power BI (reporting)</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>City Population Analysis Dashboard (2024)</h4>
+                            <p class="tech-stack">Power BI, Geospatial Mapping, Python, SQL</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Mapped <strong>500+ largest cities</strong> worldwide with population density visualizations</li>
+                                <li>Built interactive geographic dashboard with drill-down capabilities</li>
+                                <li>Analyzed urbanization trends and growth projections</li>
+                                <li><strong>Pipeline:</strong> Python (data processing) → SQL (aggregation) → Power BI (map visuals)</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Personal Finance Tracker Dashboard</h4>
+                            <p class="tech-stack">Microsoft Excel, VBA, Power Query, DAX</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Created automated budgeting dashboard with financial insights</li>
+                                <li>Built expense categorization and tracking system using VBA</li>
+                                <li>Generated monthly financial reports with trend analysis</li>
+                                <li><strong>Tools:</strong> Excel (Power Query, VBA), DAX for calculations</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>US Wage Trends Analysis</h4>
+                            <p class="tech-stack">Python (Pandas, Matplotlib), Statistical Analysis</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Analyzed minimum wage changes across <strong>50 US states</strong> over time</li>
+                                <li>Identified regional wage disparities and trends</li>
+                                <li>Visualized wage growth patterns using Python visualization libraries</li>
+                                <li><strong>Tools:</strong> Python (Pandas, NumPy, Matplotlib)</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Avocado Market Price Prediction</h4>
+                            <p class="tech-stack">Machine Learning, Python (Scikit-learn), Data Visualization</p>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Predicted avocado price trends using ML regression models</li>
+                                <li>Analyzed market patterns and seasonal variations</li>
+                                <li>Achieved <strong>85% prediction accuracy</strong> for price forecasting</li>
+                                <li><strong>Tools:</strong> Python (Scikit-learn, Pandas, Matplotlib)</li>
+                            </ul>
+                            <a href="https://github.com/Micahmichael03" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education">
+            <h2>🎓 Education</h2>
+            <div class="education-box">
+                <h3>Bachelor of Engineering (B.Eng.) – Mechanical Engineering</h3>
+                <p><strong>Nigeria Maritime University</strong>, Delta State, Nigeria</p>
+                <p><em>December 2019 – October 2024</em></p>
+                <p style="margin-top: 1.5rem;"><strong>Final Year Project:</strong> 360° Autonomous Vehicle Detection System using YOLOv8 Nano with CARLA Simulator Integration</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.8rem;">
+                    <li>Achieved <strong>85% mAP</strong> on custom dataset with <strong>35 FPS</strong> real-time performance</li>
+                    <li>Presented research findings at university engineering symposium</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section id="certifications">
+            <h2>📜 Certifications</h2>
+            <div class="cert-box">
+                <ul class="cert-list">
+                    <li><strong>Introduction to Artificial Intelligence (with Honors)</strong> – IBM</li>
+                    <li><strong>Introduction to Self-Driving Cars</strong> – University of Toronto</li>
+                    <li><strong>AI for Everyone</strong> – DeepLearning.AI</li>
+                    <li><strong>Introduction to Generative AI</strong> – Google Cloud</li>
+                    <li><strong>Introduction to Data Analysis using Microsoft Excel</strong> – Coursera Project Network</li>
+                    <li><strong>Using Basic Formulas and Functions in Microsoft Excel</strong> – Coursera Project Network</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <h2>📫 Let's Connect</h2>
+        <p>I'm actively seeking opportunities to contribute to innovative AI and data engineering teams. Whether you're building the next generation of autonomous systems, scaling computer vision products, or creating intelligent data platforms—I'd love to discuss how I can help.</p>
+        
+        <div class="footer-links">
+            <a href="mailto:makoflash05@gmail.com">✉️ Email</a>
+            <a href="https://github.com/Micahmichael03" target="_blank">🔗 GitHub</a>
+            <a href="https://linkedin.com/in/michael-micah" target="_blank">🔗 LinkedIn</a>
+        </div>
+        
+        <p style="margin-top: 2rem; font-size: 0.9rem; color: var(--text-dim);">
+            <strong>Availability:</strong> Immediately | <strong>Experience:</strong> 2+ Years | <strong>Location:</strong> Lagos, Nigeria (Remote Worldwide)
+        </p>
+        
+        <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-dim);">
+            Last Updated: November 2024
+        </p>
+    </footer>
+</body>
+</html>
