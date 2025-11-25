@@ -1,8 +1,8 @@
 # Michael Chukwuemeka Micah
 
-**AI Engineer | Computer Vision Specialist | Machine Learning Engineer | Data Engineer**
+**AI Engineer | Computer Vision Engineer | Machine Learning Engineer | Data Engineer**
 
-[GitHub](https://github.com/Micahmichael03) | [LinkedIn](https://linkedin.com/in/michael-micah) | ✉️ makoflash05@gmail.com | 📞 +234 907-139-9752
+[GitHub](https://github.com/Micahmichael03) | [LinkedIn](https://linkedin.com/in/michael-micah) | ✉️ makoflash05@gmail.com | 📞 
 
 ---
 
@@ -265,8 +265,8 @@ I'm actively seeking opportunities to contribute to innovative AI and data engin
 
 **Availability:** Immediately  
 **Experience Level:** 2+ Years (Freelance, Remote, Production Systems)  
-**Location:** Lagos, Nigeria (Open to Remote Worldwide)
+**Location:** Open to Remote Worldwide
 
 ---
 
-*Last Updated: November 2024*
+*Last Updated: November 2025*
